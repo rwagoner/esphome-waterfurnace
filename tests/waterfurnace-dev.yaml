@@ -1,0 +1,12 @@
+# Test config - overrides component source to local path
+# Used by tests/run_tests.sh for compile validation
+
+substitutions:
+  component_source: ../components
+
+packages:
+  core: !include ../waterfurnace-esp32-s3.yaml
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password

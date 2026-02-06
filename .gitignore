@@ -1,0 +1,6 @@
+/.esphome/
+/secrets.yaml
+/tests/.esphome/
+/tests/test_protocol
+__pycache__/
+*.pyc
