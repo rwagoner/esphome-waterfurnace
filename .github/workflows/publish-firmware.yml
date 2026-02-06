@@ -50,6 +50,7 @@ jobs:
             "version": "${{ steps.version.outputs.version }}",
             "home_assistant_domain": "esphome",
             "new_install_prompt_erase": true,
+            "new_install_improv_wait_time": 15,
             "builds": .
           }' output/${{ steps.esphome-build.outputs.name }}/manifest.json > output/waterfurnace.manifest.json
 

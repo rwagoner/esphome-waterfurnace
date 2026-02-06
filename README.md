@@ -2,6 +2,22 @@
 
 ESPHome external component for WaterFurnace Aurora heat pumps. Communicates via the AID port using ModBus RTU with custom function codes over RS-485.
 
+## Background
+
+This project's ModBus protocol implementation is derived from the [waterfurnace_aurora](https://github.com/ccutrer/waterfurnace_aurora) Ruby gem by Cody Cutrer. That project provides a comprehensive Ruby library and MQTT bridge for WaterFurnace systems, requiring a Raspberry Pi with a USB RS-485 adapter and an MQTT broker:
+
+```
+WaterFurnace -> USB RS-485 Adapter -> Raspberry Pi -> MQTT Broker -> Home Assistant
+```
+
+This ESPHome component provides a simpler integration path using a single ESP32-S3 device that connects directly to Home Assistant with no intermediate services:
+
+```
+WaterFurnace -> Waveshare ESP32-S3 -> Home Assistant
+```
+
+The waterfurnace_aurora gem's register documentation and protocol details were invaluable in building this component. See [NOTICE](NOTICE) for attribution.
+
 ## Hardware
 
 **Target board:** [Waveshare ESP32-S3-RS485-CAN](https://www.waveshare.com/esp32-s3-rs485-can.htm)
@@ -45,7 +61,7 @@ MAX485-based adapters are **not supported** due to poor auto-direction timing. T
 
 Visit **[rwagoner.github.io/esphome-waterfurnace](https://rwagoner.github.io/esphome-waterfurnace/)** and click the Install button to flash firmware directly from your browser via USB. No ESPHome installation required.
 
-After flashing, the device creates a **"WaterFurnace Fallback"** WiFi network. Connect to it and enter your WiFi credentials through the captive portal.
+After flashing, you'll be prompted to enter your WiFi credentials. The device uses Improv Serial for provisioning — no separate AP or captive portal needed.
 
 ### ESPHome Dashboard Import
 

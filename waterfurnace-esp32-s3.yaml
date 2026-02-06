@@ -19,11 +19,9 @@ api:
 ota:
   platform: esphome
 
-wifi:
-  ap:
-    ssid: "WaterFurnace Fallback"
+web_server:
 
-captive_portal:
+wifi:
 
 external_components:
   - source: ${component_source}
